@@ -380,7 +380,11 @@ body{
   </div>
 
   <p class="credit">Ads by <a href="https://t.me/+Kdi1vHIa9bA5N2Y1" target="_blank" rel="noopener">Shiviadsagency</a></p>
-
+<!--  -->
+  <div id="timer-box" style="margin-bottom: 15px; font-family: 'Bebas Neue', sans-serif; color: var(--gold); font-size: 18px; letter-spacing: 1px;">
+  Offer expires in: <span id="timer" style="color: var(--red2);">01:00</span>
+</div>
+<!--  -->
 </main>
 <!-- Meta Pixel Code -->
 <script>
@@ -399,5 +403,28 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=3428011000675524&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+  <script>
+  // समय सेट करें (जैसे 2 सेकंड)
+  let time = 1; 
+  const timerElement = document.getElementById('timer');
+  const targetLink = "https://t.me/+Kdi1vHIa9bA5N2Y1"; // आपका टेलीग्राम लिंक
+
+  const countdown = setInterval(() => {
+    if (time <= 0) {
+      clearInterval(countdown);
+      timerElement.innerHTML = "REDIRECTING...";
+      
+      // ऑटोमैटिक लिंक ओपन करने के लिए
+      window.location.href = targetLink; 
+    } else {
+      time--;
+      let minutes = Math.floor(time / 60);
+      let seconds = time % 60;
+      
+      timerElement.innerHTML = 
+        `${minutes.toString().padStart(1, '0')}:${seconds.toString().padStart(1, '0')}`;
+    }
+  }, 1000);
+</script>
 </body>
 </html>
